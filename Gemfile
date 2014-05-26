@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 gem 'starter_generators', :git => 'https://github.com/rbetina/starter_generators', :branch => 'kiei925'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
