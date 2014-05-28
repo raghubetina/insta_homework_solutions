@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get('/my_wall', { :controller => 'photos', :action => 'my_wall' })
+
+  get('/my_favorites', { :controller => 'photos', :action => 'my_favorites' })
+
   devise_for :users
   root 'photos#index'
 
