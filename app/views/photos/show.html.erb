@@ -17,7 +17,7 @@
 <ul>
   <% @photo.comments.each do |comment| %>
     <li>
-      <h4><%= User.find(comment.user_id).email %></h4>
+      <h4><%= comment.user.email %></h4>
       <p><%= comment.content %></p>
     </li>
   <% end %>
