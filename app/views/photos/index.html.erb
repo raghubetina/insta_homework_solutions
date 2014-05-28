@@ -7,7 +7,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Image url</th>
+      <th>Image</th>
       <th>Caption</th>
       <th>User</th>
       <th></th>
@@ -19,7 +19,7 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.image_url %></td>
+        <td><img src="<%= photo.image_url %>" width="40"></td>
         <td><%= photo.caption %></td>
         <td><%= photo.user_id %></td>
         <td>
