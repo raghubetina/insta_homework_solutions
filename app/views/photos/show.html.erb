@@ -13,3 +13,12 @@
   <dd><%= @photo.user_id %></dd>
 
 </dl>
+
+<ul>
+  <% @photo.comments.each do |comment| %>
+    <li>
+      <h4><%= User.find(comment.user_id).email %></h4>
+      <p><%= comment.content %></p>
+    </li>
+  <% end %>
+</ul>
