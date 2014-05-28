@@ -21,4 +21,15 @@
       <p><%= comment.content %></p>
     </li>
   <% end %>
+  <li>
+    <form action="/create_comment">
+      <textarea id="content" name="content" placeholder="Add your comment" class="form-control" rows="3"></textarea>
+
+      <input type="hidden" id="photo_id" name="photo_id" value="<%= @photo.id %>">
+
+      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+
+      <input type="submit" value="Create Comment" class="btn btn-primary">
+    </form>
+  </li>
 </ul>
