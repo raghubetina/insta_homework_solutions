@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.content = params[:content]
     @comment.photo_id = params[:photo_id]
-    @comment.user_id = params[:user_id]
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to "/photos/#{@comment.photo_id}", :notice => "Comment created successfully."
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
 
     @comment.content = params[:content]
     @comment.photo_id = params[:photo_id]
-    @comment.user_id = params[:user_id]
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to "/comments", :notice => "Comment updated successfully."
