@@ -1,5 +1,8 @@
 <div class="page-header">
-  <h1>Photo #<%= @photo.id %></h1>
+  <h1>
+    Photo #<%= @photo.id %>
+    <a href="/create_favorite?photo_id=<%= @photo.id %>&user_id=<%= current_user.id %>" class="btn btn-success">Make Favorite</a>
+  </h1>
 </div>
 
 <dl class="dl-horizontal">
