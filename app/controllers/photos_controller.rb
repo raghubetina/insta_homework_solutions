@@ -52,9 +52,11 @@ class PhotosController < ApplicationController
 
   def my_wall
     @photos = current_user.photos
+    render 'index'
   end
 
   def my_favorites
     @photos = current_user.favorite_photos
+    render 'index'
   end
 end
