@@ -3,6 +3,15 @@ class PhotosController < ApplicationController
 
   before_action(:signed_in_user_must_be_owner, :only => [:edit, :destroy, :update])
 
+
+  def search
+    @keyword = params[:keyword]
+
+    @photos = Photo.where("caption LIKE '%#{@keyword}%'")
+
+    render 'index'
+  end
+
   def set_photo
     @photo = Photo.find(params[:id])
   end

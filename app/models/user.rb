@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :own_photos, :class_name => "Photo", :foreign_key => "user_id"
+  has_many :own_photos, :class_name => "Photo", :foreign_key => "user_id", :dependent => :destroy
 
-  has_many :favorites
+  has_many :favorites, :dependent => :destroy
 
   has_many :favorite_photos, :through => :favorites, :source => :photo
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get('/photos/search', { :controller => "photos", :action => "search" })
+
   get("/my_timeline", { :controller => "photos", :action => "my_timeline" })
 
   # Routes for the Following resource:
