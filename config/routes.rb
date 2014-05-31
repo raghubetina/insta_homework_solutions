@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  get("/users", { :controller => "users", :action => "index" })
+  get("/users/:id", { :controller => "users", :action => "show" })
+
   get('/my_wall', { :controller => 'photos', :action => 'my_wall' })
 
   get('/my_favorites', { :controller => 'photos', :action => 'my_favorites' })
 
-  devise_for :users
   root 'photos#index'
 
   # Routes for the Favorite resource:
@@ -43,7 +47,7 @@ Rails.application.routes.draw do
   # Routes for the Photo resource:
   # CREATE
   get('/photos/new', { :controller => 'photos', :action => 'new' })
-  get('/create_photo', { :controller => 'photos', :action => 'create' })
+  post('/create_photo', { :controller => 'photos', :action => 'create' })
 
   # READ
   get('/photos', { :controller => 'photos', :action => 'index' })

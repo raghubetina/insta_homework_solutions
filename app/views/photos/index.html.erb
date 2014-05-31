@@ -27,9 +27,8 @@
               <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
-              <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger">
-                <i class="fa fa-trash-o"></i>
-              </a>
+
+              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, "/delete_photo/#{photo.id}", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"  %>
             <% end %>
           </p>
         </div>
