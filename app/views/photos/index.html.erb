@@ -1,8 +1,17 @@
 <% @photos.each do |photo| %>
   <div class="row">
     <div class="col-md-2 col-md-offset-1">
-      <p><%= photo.user.email %></p>
-      <p><%= time_ago_in_words(photo.created_at) %> ago</p>
+      <div class="pull-left">
+        <p class="text-right">
+          <a href="/users/<%= photo.user.id %>">
+            <%= photo.user.username %>
+          </a>
+        </p>
+        <p class="text-right"><%= time_ago_in_words(photo.created_at) %> ago</p>
+      </div>
+      <div class="pull-right">
+        <img src="<%= photo.user.avatar_url %>" class="img-responsive pull-right">
+      </div>
     </div>
     <div class="col-md-6 well">
       <div class="thumbnail">
