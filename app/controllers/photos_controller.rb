@@ -59,11 +59,28 @@ class PhotosController < ApplicationController
   end
 
   def my_wall
-    @photos = current_user.photos
+    @photos = current_user.own_photos
     render 'index'
   end
 
   def my_favorites
-set_photo    render 'index'
+    @photos = current_user.favorite_photos
+    render 'index'
   end
+
+
+  def my_timeline
+    @photos = current_user.timeline.order("created_at")
+    render 'index'
+  end
+
+
+
+
+
+
+
+
+
+
 end
