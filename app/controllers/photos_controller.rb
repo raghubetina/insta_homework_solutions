@@ -24,9 +24,26 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+
+      format.json do
+        render :json => @photos
+      end
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html
+
+      format.json do
+        render :json => @photo
+      end
+    end
   end
 
   def new
@@ -64,13 +81,20 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
 
-    redirect_to "/photos", :notice => "Photo deleted."
+    respond_to do |format|
+      format.html do
+        redirect_to "/photos", :notice => "Photo deleted."
+      end
+
+      format.js
+    end
   end
 
   def my_wall
     @photos = current_user.own_photos
     render 'index'
   end
+
 
   def my_favorites
     @photos = current_user.favorite_photos

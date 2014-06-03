@@ -1,5 +1,5 @@
 <% @photos.each do |photo| %>
-  <div class="row">
+  <div class="row" id="photo_<%= photo.id %>">
     <div class="col-md-2 col-md-offset-1">
       <div class="pull-left">
         <p class="text-right">
@@ -37,7 +37,7 @@
                 <i class="fa fa-edit"></i>
               </a>
 
-              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, "/delete_photo/#{photo.id}", data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"  %>
+              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, "/delete_photo/#{photo.id}", :class => "btn btn-danger", :remote => true  %>
             <% end %>
           </p>
         </div>
